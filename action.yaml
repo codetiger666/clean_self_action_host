@@ -3,6 +3,8 @@ author: codetiger
 description: Clean Self Action Host For New Host
 
 runs:
-  setps:
+  using: "composite"
+  steps:
     - run: |
-      ls /_work/${{ runner.name }}/ | grep -v '_actions' | grep -v '_PipelineMapping' | xargs -I {} rm -rf _work/${{ runner.name }}/{}
+        ls /_work/${{ runner.name }}/ | grep -v '_actions' | grep -v '_PipelineMapping' | xargs -I {} rm -rf /_work/${{ runner.name }}/{}
+      shell: bash
